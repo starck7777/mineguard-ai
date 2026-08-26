@@ -44,7 +44,7 @@ The prototype models solar supply, protected 18650 batteries, ESP32, SX1276/78 L
 
 ```text
 ESP32/Simulator → FastAPI ingestion → SQLAlchemy/PostgreSQL
-                         ├─ REST analytics → React/Vite on Vercel
+                         ├─ REST analytics → React/Vite on Render
                          └─ WebSocket live stream ─────────────┘
 ```
 
@@ -100,9 +100,11 @@ npm run build
 
 ## Deployment
 
-The supported architecture is a Vercel frontend, persistent FastAPI backend and managed PostgreSQL. See [deployment instructions](docs/DEPLOYMENT.md) and [deployment audit](DEPLOYMENT_AUDIT.md).
+The production Blueprint builds React and serves it from the persistent FastAPI service on Render, backed by managed PostgreSQL. See [deployment instructions](docs/DEPLOYMENT.md) and [deployment audit](DEPLOYMENT_AUDIT.md).
 
-- Live application: pending production backend and deployment.
-- API documentation: pending production backend.
+- Live application: provision with the Render Blueprint below.
+- API documentation: available at `/docs` on the deployed application.
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fstarck7777%2Fmineguard-ai)
 
 This project is an SIH educational prototype and must not be represented as a certified underground warning system.

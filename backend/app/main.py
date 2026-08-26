@@ -17,7 +17,7 @@ from typing import Literal
 
 from fastapi import FastAPI, Header, HTTPException, Request, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field, field_validator
 from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, UniqueConstraint, create_engine, select, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker
@@ -609,3 +609,17 @@ async def live(ws:WebSocket):
             except asyncio.TimeoutError: await ws.send_json({'type':'heartbeat','message_sequence':hub.seq})
     except WebSocketDisconnect: pass
     finally: hub.remove(ws)
+
+
+# Render builds the Vite application into frontend/dist. Serving it from the
+# API keeps the UI, REST endpoints, and WebSocket on one production origin.
+FRONTEND_DIST = ROOT.parent / 'frontend' / 'dist'
+
+@app.get('/{full_path:path}', include_in_schema=False)
+def frontend(full_path: str):
+    if not FRONTEND_DIST.is_dir():
+        raise HTTPException(404, 'Frontend build is not available')
+    requested = (FRONTEND_DIST / full_path).resolve()
+    if requested.is_relative_to(FRONTEND_DIST.resolve()) and requested.is_file():
+        return FileResponse(requested)
+    return FileResponse(FRONTEND_DIST / 'index.html')
