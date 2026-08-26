@@ -2,6 +2,7 @@ services:
   - type: web
     name: mineguard-ai
     runtime: python
+    repo: https://github.com/starck7777/mineguard-ai
     region: singapore
     plan: free
     branch: main
