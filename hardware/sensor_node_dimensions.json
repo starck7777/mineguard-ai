@@ -1,0 +1,15 @@
+{
+  "units": "mm",
+  "enclosure": {"width": 150, "height": 110, "depth": 80, "wall": 3},
+  "solar_panel": {"width": 140, "height": 90, "depth": 8},
+  "electronics_tray": {"width": 125, "depth": 65, "layer_spacing": 18},
+  "battery_compartment": {"width": 72, "height": 24, "depth": 42},
+  "cable_gland": {"diameter": 12, "length": 18},
+  "ground_stake": {"length": 300, "width": 18, "depth": 12},
+  "sensor_plate": {"width": 120, "depth": 65, "thickness": 5},
+  "moisture_probe": {"length": 160, "width": 22, "depth": 3, "soil_depth": 130},
+  "tof_bracket": {"height": 55, "arm_length": 42},
+  "antenna": {"length": 165, "diameter": 8},
+  "mounting_screw": {"diameter": 4, "length": 16},
+  "maximum_exploded_spacing": 60
+}
