@@ -32,6 +32,7 @@ DATA.mkdir(exist_ok=True)
 APP_ENV=os.getenv('APP_ENV','development').lower()
 DB_URL = os.getenv('DATABASE_URL') or os.getenv('MINEGUARD_DATABASE_URL', f'sqlite:///{DATA / "mineguard.db"}')
 if DB_URL.startswith('postgres://'): DB_URL='postgresql+psycopg://'+DB_URL.removeprefix('postgres://')
+elif DB_URL.startswith('postgresql://'): DB_URL='postgresql+psycopg://'+DB_URL.removeprefix('postgresql://')
 engine = create_engine(DB_URL, connect_args={'check_same_thread': False} if DB_URL.startswith('sqlite') else {}, poolclass=StaticPool if DB_URL=='sqlite:///:memory:' else None, pool_pre_ping=True)
 Session = sessionmaker(engine, expire_on_commit=False)
 
