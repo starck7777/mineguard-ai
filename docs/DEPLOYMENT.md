@@ -19,8 +19,7 @@ is required. SQLite remains local-development-only.
 2. Sign in to Render and authorize the public GitHub repository if requested.
 3. Review and apply the Blueprint.
 4. Wait for `mineguard-ai-db` and `mineguard-ai` to become available.
-5. Open `https://mineguard-ai.onrender.com` (Render may add a suffix if that
-   service name is already taken).
+5. Open `https://mineguard-ai-rpzc.onrender.com`.
 
 The Blueprint uses Singapore, a free web service and free PostgreSQL. Render's
 free PostgreSQL databases expire after 30 days and have no backups; upgrade the

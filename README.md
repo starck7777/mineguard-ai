@@ -102,8 +102,8 @@ npm run build
 
 The production Blueprint builds React and serves it from the persistent FastAPI service on Render, backed by managed PostgreSQL. See [deployment instructions](docs/DEPLOYMENT.md) and [deployment audit](DEPLOYMENT_AUDIT.md).
 
-- Live application: provision with the Render Blueprint below.
-- API documentation: available at `/docs` on the deployed application.
+- Live application: [https://mineguard-ai-rpzc.onrender.com](https://mineguard-ai-rpzc.onrender.com)
+- API documentation: [https://mineguard-ai-rpzc.onrender.com/docs](https://mineguard-ai-rpzc.onrender.com/docs)
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fstarck7777%2Fmineguard-ai)
 
